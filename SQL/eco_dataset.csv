@@ -1,0 +1,41 @@
+﻿Transaction_ID,User_Name,Age,Country,Product_Category,Purchase_Amount,Payment_Method,Transaction_Date
+1,Ava Hall,63,Mexico,Clothing,780.69,Debit Card,14-04-2023
+2,Sophia Hall,59,India,Beauty,738.56,PayPal,30-07-2023
+3,Elijah Thompson,26,France,Books,178.34,Credit Card,17-09-2023
+4,Elijah White,43,Mexico,Sports,401.09,UPI,21-06-2023
+5,Ava Harris,48,Germany,Beauty,594.83,Net Banking,29-10-2024
+6,Elijah Harris,51,India,Toys,966.5,Cash on Delivery,18-01-2025
+7,Oliver Clark,27,Germany,Home & Kitchen,341.73,Credit Card,13-03-2024
+8,Olivia Allen,46,Canada,Home & Kitchen,11.33,Debit Card,04-01-2024
+9,Liam Harris,54,France,Beauty,279.43,Cash on Delivery,06-12-2023
+10,Liam Allen,60,Canada,Beauty,223.9,Cash on Delivery,07-08-2023
+11,James Clark,30,Japan,Home & Kitchen,344.6,Net Banking,11-08-2023
+12,Sophia Allen,48,Japan,Grocery,319.74,UPI,20-11-2023
+13,Sophia Harris,21,France,Toys,380.15,PayPal,10-12-2024
+14,Sophia Anderson,26,France,Toys,871.99,Net Banking,05-02-2025
+15,Ava Thompson,18,France,Clothing,382.41,Debit Card,28-09-2024
+16,Elijah Harris,55,Australia,Clothing,133.01,Net Banking,01-12-2023
+17,Emma Walker,59,Brazil,Electronics,736.55,UPI,04-08-2023
+18,Olivia Harris,47,Brazil,Books,336.43,PayPal,25-05-2023
+19,Noah Lewis,20,France,Beauty,682.74,PayPal,12-02-2025
+20,James Thompson,43,India,Toys,849.67,Cash on Delivery,07-04-2023
+21,Sophia Harris,57,Brazil,Sports,228.8,Credit Card,14-02-2025
+22,Emma Clark,58,USA,Toys,404.6,PayPal,30-05-2023
+23,Noah Allen,55,UK,Sports,713.29,PayPal,30-06-2023
+24,Noah White,28,Germany,Electronics,774.7,Cash on Delivery,28-07-2024
+25,Ava Allen,21,Germany,Home & Kitchen,838.22,Debit Card,05-11-2024
+26,Sophia Walker,39,Brazil,Grocery,51.94,Cash on Delivery,14-04-2024
+27,Sophia Lewis,43,Germany,Beauty,531.22,PayPal,08-09-2023
+28,Ava Thompson,36,UK,Grocery,454.08,Credit Card,15-09-2023
+29,Noah Harris,55,Brazil,Beauty,911.02,Cash on Delivery,28-03-2023
+30,Emma White,18,Canada,Home & Kitchen,381.67,Cash on Delivery,16-05-2023
+31,Liam Thompson,19,UK,Home & Kitchen,518.82,PayPal,07-03-2024
+32,Oliver Allen,30,Canada,Books,161.22,Debit Card,17-08-2024
+33,Olivia Hall,51,USA,Electronics,790.2,UPI,19-11-2023
+34,James Lewis,42,Australia,Electronics,585.24,Debit Card,01-10-2024
+35,Noah Thompson,63,USA,Grocery,216.99,Net Banking,12-10-2023
+36,Isabella White,41,Australia,Home & Kitchen,597.62,PayPal,24-03-2023
+37,Noah Hall,21,France,Toys,474.1,Credit Card,06-10-2024
+38,Isabella Walker,53,France,Beauty,282.92,PayPal,05-10-2023
+39,Elijah Harris,50,India,Sports,452.37,PayPal,14-12-2024
+40,Olivia Allen,60,Japan,Books,872.01,Cash on Delivery,20-01-2025

@@ -1,0 +1,12 @@
+use reethu;
+show tables;
+select * from ecommerce_transactions;
+select datediff(sysdate(),Transaction_Date) from ecommerce_transactions;
+select date_format("2023-04-14","%y");
+select date_format("2023-04-14","%d");
+select date_format("2023-04-14","%m");
+select day("2023-04-14");
+select quarter("2023-04-14");
+select adddate("2023-04-14",interval 10 day);
+select adddate("2023-04-14",interval 10 year);
+select adddate("2023-04-14",interval 3 month);
