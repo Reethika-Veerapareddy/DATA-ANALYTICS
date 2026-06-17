@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reethika Veerapareddy | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg-color: #050816;
+      --secondary-bg: #0f172a;
+      --card-bg: rgba(15, 23, 42, 0.7);
+      --text-color: #ffffff;
+      --light-text: #bfc9db;
+      --main-color: #00f7ff;
+      --main-glow: rgba(0, 247, 255, 0.5);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --shadow: 0 0 25px rgba(0, 247, 255, 0.25);
+    }
+
+    body.light-mode {
+      --bg-color: #f5f7ff;
+      --secondary-bg: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --text-color: #0f172a;
+      --light-text: #475569;
+      --main-color: #0066ff;
+      --main-glow: rgba(0, 102, 255, 0.25);
+      --border-color: rgba(15, 23, 42, 0.08);
+      --shadow: 0 0 20px rgba(0, 102, 255, 0.15);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      transition: 0.4s ease;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(0,247,255,0.08), transparent 30%),
+                  radial-gradient(circle at bottom right, rgba(139,92,246,0.15), transparent 25%);
+      z-index: -1;
+    }
+
+    .particles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: var(--main-color);
+      border-radius: 50%;
+      animation: float 15s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0);
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+      }
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 18px 8%;
+      background: rgba(5, 8, 22, 0.75);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    body.light-mode header {
+      background: rgba(255,255,255,0.85);
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--main-color);
+      text-shadow: 0 0 12px var(--main-glow);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.95rem;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--main-color);
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--main-color);
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    .theme-toggle {
+      width: 50px;
+      height: 25px;
+      background: var(--secondary-bg);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+
+    .toggle-circle {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--main-color);
+      transition: 0.4s ease;
+      box-shadow: 0 0 10px var(--main-color);
+    }
+
+    body.light-mode .toggle-circle {
+      transform: translateX(23px);
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 110px 8% 70px;
+    }
+
+    .home {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .home-content {
+      flex: 1;
+      min-width: 300px;
+      animation: slideUp 1s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .home-content h3 {
+      font-size: 1.3rem;
+      color: var(--main-color);
+      margin-bottom: 10px;
+    }
+
+    .home-content h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .home-content h2 {
+      font-size: 1.8rem;
+      color: var(--light-text);
+      margin-bottom: 20px;
+    }
+
+    .typing-text {
+      color: var(--main-color);
+      text-shadow: 0 0 10px var(--main-glow);
+    }
+
+    .home-content p {
+      color: var(--light-text);
+      line-height: 1.8;
+      margin-bottom: 30px;
+      max-width: 700px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 28px;
+      background: var(--main-color);
+      color: #000;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid var(--main-color);
+      transition: 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-4px) scale(1.03);
+      background: transparent;
+      color: var(--main-color);
+    }
+
+    .outline-btn {
+      background: transparent;
+      color: var(--main-color);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .social-icons a {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--main-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--main-color);
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background: var(--main-color);
+      color: #000;
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      min-width: 300px;
+    }
+
+    .profile-card {
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      position: relative;
+      background: linear-gradient(145deg, rgba(0,247,255,0.2), rgba(139,92,246,0.1));
+      padding: 12px;
+      box-shadow: 0 0 50px rgba(0,247,255,0.15);
+      animation: pulse 4s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 40px rgba(0,247,255,0.2);
+      }
+      50% {
+        box-shadow: 0 0 80px rgba(0,247,255,0.45);
+      }
+    }
+
+    .profile-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.08);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 2.8rem;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--text-color);
+    }
+
+    .section-title span {
+      color: var(--main-color);
+      text-shadow: 0 0 12px var(--main-glow);
+    }
+
+    .about-container,
+    .internship-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 30px;
+      backdrop-filter: blur(12px);
+      transition: 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .glass-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0,247,255,0.4);
+      box-shadow: 0 0 30px rgba(0,247,255,0.18);
+    }
+
+    .glass-card h3 {
+      margin-bottom: 15px;
+      color: var(--main-color);
+      font-size: 1.3rem;
+    }
+
+    .glass-card p,
+    .glass-card li {
+      color: var(--light-text);
+      line-height: 1.8;
+    }
+
+    .skills-grid,
+    .project-grid,
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .skill-box {
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 25px;
+      border: 1px solid var(--border-color);
+      transition: 0.3s ease;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-7px);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-box h3 {
+      color: var(--main-color);
+      margin-bottom: 18px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tag {
+      padding: 10px 16px;
+      background: rgba(0,247,255,0.08);
+      border: 1px solid rgba(0,247,255,0.25);
+      border-radius: 30px;
+      color: var(--text-color);
+      font-size: 0.9rem;
+      transition: 0.3s ease;
+    }
+
+    .tag:hover {
+      background: var(--main-color);
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: 0.4s ease;
+      position: relative;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 40px rgba(0,247,255,0.2);
+    }
+
+    .project-image {
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .project-content {
+      padding: 25px;
+    }
+
+    .project-content h3 {
+      color: var(--main-color);
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .project-content p {
+      color: var(--light-text);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .project-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .mini-btn {
+      padding: 10px 16px;
+      border-radius: 25px;
+      text-decoration: none;
+      border: 1px solid var(--main-color);
+      color: var(--main-color);
+      transition: 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .mini-btn:hover {
+      background: var(--main-color);
+      color: #000;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: var(--main-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 20px 40px;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 25px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s ease;
+    }
+
+    .timeline-content:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-content h3 {
+      color: var(--main-color);
+      margin-bottom: 10px;
+    }
+
+    .timeline-content h4 {
+      margin-bottom: 10px;
+      color: var(--text-color);
+    }
+
+    .timeline-content p {
+      color: var(--light-text);
+      line-height: 1.7;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: var(--main-color);
+      border-radius: 50%;
+      top: 30px;
+      right: -9px;
+      box-shadow: 0 0 20px var(--main-color);
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -9px;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-box {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .info-box i {
+      width: 55px;
+      height: 55px;
+      background: rgba(0,247,255,0.1);
+      color: var(--main-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .info-box h4 {
+      margin-bottom: 5px;
+    }
+
+    .info-box a,
+    .info-box p {
+      color: var(--light-text);
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    form {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 24px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 15px;
+      border: 1px solid var(--border-color);
+      background: rgba(255,255,255,0.03);
+      color: var(--text-color);
+      outline: none;
+      font-size: 1rem;
+      resize: none;
+    }
+
+    form textarea {
+      height: 150px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: var(--light-text);
+      border-top: 1px solid var(--border-color);
+      background: rgba(0,0,0,0.15);
+    }
+
+    .scroll-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--main-color);
+      color: #000;
+      border: none;
+      cursor: pointer;
+      display: none;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow);
+      z-index: 1000;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: var(--main-color);
+    }
+
+    @media (max-width: 991px) {
+      .home-content h1 {
+        font-size: 3rem;
+      }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+
+      .timeline-item::after,
+      .timeline-item:nth-child(even)::after {
+        left: 11px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 18px 5%;
+      }
+
+      section {
+        padding: 100px 5% 60px;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      nav {
+        position: absolute;
+        top: 80px;
+        right: -100%;
+        width: 260px;
+        flex-direction: column;
+        background: var(--secondary-bg);
+        padding: 25px;
+        border-radius: 20px;
+        transition: 0.4s ease;
+        border: 1px solid var(--border-color);
+      }
+
+      nav.active {
+        right: 5%;
+      }
+
+      .home {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .home-content p {
+        margin: auto auto 30px;
+      }
+
+      .btn-group,
+      .social-icons {
+        justify-content: center;
+      }
+
+      .profile-card {
+        width: 300px;
+        height: 300px;
+      }
+
+      .home-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .home-content h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="particles" id="particles"></div>
+
+  <header>
+    <div class="logo">Reethika.</div>
+
+    <nav id="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#internship">Internship</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div style="display:flex; align-items:center; gap:18px;">
+      <div class="theme-toggle" id="themeToggle">
+        <div class="toggle-circle"></div>
+      </div>
+      <i class="fa-solid fa-bars menu-icon" id="menuIcon"></i>
+    </div>
+  </header>
+
+  <section class="home" id="home">
+    <div class="home-content">
+      <h3>Hello, I'm</h3>
+      <h1>Reethika <br> Veerapareddy</h1>
+      <h2><span class="typing-text"></span></h2>
+
+      <p>
+        Aspiring Cloud Engineer passionate about building intelligent and scalable applications.
+        Skilled in Python, Java, and Machine Learning with hands-on experience in AI-based projects.
+        Interested in Cloud Computing, modern technologies, and solving real-world problems through innovative software solutions.
+      </p>
+
+      <a href="reethikaresumeiiit.pdf" download class="btn">
+  <i class="fa-solid fa-download"></i> Download Resume
+</a>
+        <a href="#contact" class="btn outline-btn">
+          <i class="fa-solid fa-paper-plane"></i> Hire Me
+        </a>
+      </div>
+
+      <div class="social-icons">
+        <a href="https://github.com/Reethika-Veerapareddy" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="https://linkedin.com/in/reethika-veerapareddy-184009398" target="_blank">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="mailto:veerapareddyreethika@gmail.com">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="profile-container">
+      <div class="profile-card">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop" alt="Profile Picture">
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-title">
+      <h2>About <span>Me</span></h2>
+    </div>
+
+    <div class="about-container">
+      <div class="glass-card">
+        <h3>Career Objective</h3>
+        <p>
+          Passionate about Artificial Intelligence, Cloud Computing, and Software Development.
+          Looking for opportunities to contribute innovative ideas, build scalable applications,
+          and continuously improve technical expertise in modern technologies.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <h3>Education</h3>
+        <p>
+          B.Tech Student at Madanapalle Institute of Technology and Science (MITS).
+          Focused on AI, Machine Learning, Cloud Technologies, and Problem Solving.
+        </p>
+      </div>
+
+      <div class="glass-card">
+        <h3>Professional Role</h3>
+        <p>
+          Cloud & Software Developer with interest in AI-powered systems, intelligent automation,
+          and real-world software solutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-title">
+      <h2>Technical <span>Skills</span></h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-box">
+        <h3>Programming Languages</h3>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">C</span>
+          <span class="tag">DSA</span>
+        </div>
+      </div>
+
+      <div class="skill-box">
+        <h3>Cloud & Database</h3>
+        <div class="skill-tags">
+          <span class="tag">AWS Cloud</span>
+          <span class="tag">Oracle Cloud</span>
+          <span class="tag">MySQL</span>
+        </div>
+      </div>
+
+      <div class="skill-box">
+        <h3>Web Technologies</h3>
+        <div class="skill-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="skill-box">
+        <h3>AI & Machine Learning</h3>
+        <div class="skill-tags">
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">Keras</span>
+          <span class="tag">Scikit-learn</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title">
+      <h2>Featured <span>Projects</span></h2>
+    </div>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=1200&auto=format&fit=crop" alt="Farmer Crop Recommendation">
+        </div>
+
+        <div class="project-content">
+          <h3>Farmer Crop Recommendation System</h3>
+
+          <p>
+            A Machine Learning-based application that recommends suitable crops based on soil nutrients,
+            temperature, humidity, rainfall, and pH values to improve agricultural productivity.
+          </p>
+
+          <div class="tech-stack">
+            <span class="tag">Python</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Scikit-learn</span>
+          </div>
+
+          <div class="project-btns">
+            <a href="https://github.com/Reethika-Veerapareddy/Farmer.git" target="_blank" class="mini-btn">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" alt="AI Tic Tac Toe">
+        </div>
+
+        <div class="project-content">
+          <h3>AI-Based Tic Tac Toe Game</h3>
+
+          <p>
+            Intelligent Tic Tac Toe game developed using Python and the Minimax Algorithm where AI makes
+            optimal decisions against players, demonstrating Artificial Intelligence and problem-solving.
+          </p>
+
+          <div class="tech-stack">
+            <span class="tag">Python</span>
+            <span class="tag">AI</span>
+            <span class="tag">Minimax</span>
+            <span class="tag">Game Logic</span>
+          </div>
+
+          <div class="project-btns">
+            <a href="https://github.com/Reethika-Veerapareddy/Byte.git" target="_blank" class="mini-btn">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop" alt="Digit Recognition">
+        </div>
+
+        <div class="project-content">
+          <h3>Handwritten Digit Recognition</h3>
+
+          <p>
+            Deep Learning-based digit recognition system using the MNIST dataset to accurately identify
+            handwritten digits, showcasing Neural Networks and Computer Vision concepts.
+          </p>
+
+          <div class="tech-stack">
+            <span class="tag">TensorFlow</span>
+            <span class="tag">Keras</span>
+            <span class="tag">Deep Learning</span>
+            <span class="tag">MNIST</span>
+          </div>
+
+          <div class="project-btns">
+            <a href="https://github.com/Reethika-Veerapareddy/digit_reco.git" target="_blank" class="mini-btn">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="internship">
+    <div class="section-title">
+      <h2>Internship <span>Experience</span></h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <h3>Infitech</h3>
+          <h4>Team Member • 2 Months</h4>
+
+          <p>
+            Worked on AI and Python-based projects including Handwritten Digit Recognition,
+            AI-Based Tic Tac Toe Game, and Chatbot Development. Collaborated in development,
+            testing, and implementation while gaining practical exposure to Artificial Intelligence
+            and Machine Learning concepts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="section-title">
+      <h2>My <span>Certifications</span></h2>
+    </div>
+
+    <div class="cert-grid">
+      <div class="glass-card">
+        <h3><i class="fa-solid fa-award"></i> Oracle Cloud Infrastructure Foundations Associate</h3>
+        <p>Certified by Oracle University with foundational knowledge in Oracle Cloud Infrastructure.</p>
+      </div>
+
+      <div class="glass-card">
+        <h3><i class="fa-solid fa-certificate"></i> Python Development Certification</h3>
+        <p>Certified through Coursera covering Python programming and software development concepts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">
+      <h2>Contact <span>Me</span></h2>
+    </div>
+
+    <div class="contact-container">
+
+      <div class="contact-info">
+
+        <div class="info-box">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:veerapareddyreethika@gmail.com">veerapareddyreethika@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <i class="fa-brands fa-github"></i>
+          <div>
+            <h4>GitHub</h4>
+            <a href="https://github.com/Reethika-Veerapareddy" target="_blank">
+              github.com/Reethika-Veerapareddy
+            </a>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <i class="fa-brands fa-linkedin"></i>
+          <div>
+            <h4>LinkedIn</h4>
+            <a href="https://linkedin.com/in/reethika-veerapareddy-184009398" target="_blank">
+              linkedin.com/in/reethika-veerapareddy
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject" required>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit" class="btn">
+          <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Reethika Veerapareddy | AI Futuristic Portfolio</p>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    const typingText = document.querySelector('.typing-text');
+
+    const professions = [
+      'Cloud & Software Developer',
+      'Aspiring Cloud Engineer',
+      'AI Enthusiast',
+      'Machine Learning Developer'
+    ];
+
+    let professionIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentProfession = professions[professionIndex];
+
+      if (!isDeleting) {
+        typingText.textContent = currentProfession.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentProfession.length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1200);
+          return;
+        }
+      } else {
+        typingText.textContent = currentProfession.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          professionIndex = (professionIndex + 1) % professions.length;
+        }
+      }
+
+      setTimeout(typeEffect, isDeleting ? 60 : 120);
+    }
+
+    typeEffect();
+
+    const themeToggle = document.getElementById('themeToggle');
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+    });
+
+    const menuIcon = document.getElementById('menuIcon');
+    const navbar = document.getElementById('navbar');
+
+    menuIcon.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+
+        if (pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+
+        if (link.getAttribute('href').includes(current)) {
+          link.classList.add('active');
+        }
+      });
+
+      const scrollTopBtn = document.getElementById('scrollTop');
+
+      if (window.scrollY > 400) {
+        scrollTopBtn.style.display = 'block';
+      } else {
+        scrollTopBtn.style.display = 'none';
+      }
+    });
+
+    document.getElementById('scrollTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const particlesContainer = document.getElementById('particles');
+
+    for (let i = 0; i < 60; i++) {
+      const particle = document.createElement('span');
+      particle.classList.add('particle');
+
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDuration = (Math.random() * 10 + 8) + 's';
+      particle.style.opacity = Math.random();
+      particle.style.width = particle.style.height = (Math.random() * 4 + 2) + 'px';
+
+      particlesContainer.appendChild(particle);
+    }
+
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Message sent successfully!');
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
